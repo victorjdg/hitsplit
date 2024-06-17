@@ -19,6 +19,7 @@ pub struct OptionalConfig {
     num_splits_counter: Option<usize>,
     counter_size: Option<Vec2>,
     columns: Option<ColumnVec>,
+    always_on_top: Option<bool>,
 }
 
 impl OptionalConfig {
@@ -37,6 +38,7 @@ impl OptionalConfig {
             num_splits_counter: self.num_splits_counter.unwrap_or(10),
             counter_size: self.counter_size.unwrap_or([280.0, 600.0].into()),
             columns: self.columns.clone().unwrap_or_default(),
+            always_on_top: self.always_on_top.unwrap_or(false),
         }
     }
 }
@@ -53,6 +55,7 @@ pub struct Config {
     pub num_splits_counter: usize,
     pub counter_size: Vec2,
     pub columns: ColumnVec,
+    pub always_on_top: bool,
 }
 
 impl Default for Config {
@@ -68,6 +71,7 @@ impl Default for Config {
             num_splits_counter: 0,
             counter_size: [280.0, 600.0].into(),
             columns: ColumnVec::default(),
+            always_on_top: false,
         }
     }
 }

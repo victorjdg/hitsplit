@@ -14,6 +14,10 @@ pub fn configuration(app: &mut HitSplit, ctx: &egui::Context) {
             egui::widgets::global_dark_light_mode_buttons(ui);
         });
         ui.horizontal(|ui| {
+            ui.label("Counter always on top: ");
+            ui.checkbox(&mut app.config.always_on_top, "");
+        });
+        ui.horizontal(|ui| {
             ui.label("Autosave: ");
             ui.checkbox(&mut app.config.autosave, "");
         });

@@ -164,6 +164,12 @@ impl eframe::App for HitSplit {
             shortcut_handler(self);
         }
 
+        if self.config.always_on_top {
+            ctx.send_viewport_cmd(egui::ViewportCommand::WindowLevel(egui::WindowLevel::AlwaysOnTop));
+        } else {
+            ctx.send_viewport_cmd(egui::ViewportCommand::WindowLevel(egui::WindowLevel::Normal));
+        }
+
         counter(self, ctx);
 
         if self.show_config {
